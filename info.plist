@@ -4,13 +4,105 @@
 <dict>
 	<key>bundleid</key>
 	<string>com.skibitsky.alfred-timing</string>
+	<key>category</key>
+	<string>My</string>
 	<key>connections</key>
 	<dict>
+		<key>59802D88-883B-410D-B63D-6AD559088644</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>D17EF3A3-0F11-40EE-8DFF-4739CEE9C179</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>7590CD22-D175-47FC-BF75-C9AD796782F6</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>509A21D4-0A66-4F00-A1D6-63AF793E1E27</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>8640886C-129A-48D8-81EA-9D267380D303</key>
 		<array>
 			<dict>
 				<key>destinationuid</key>
-				<string>CDAE3014-01C4-4C64-960A-111558B1434C</string>
+				<string>C2879205-8139-4FDE-A7FC-B9CBD8C111D6</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>96E4E405-A44F-4EC4-BE91-E30978317012</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>D0D9779A-C94C-4B86-98BC-173ABFD7CBCB</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>C2879205-8139-4FDE-A7FC-B9CBD8C111D6</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>7590CD22-D175-47FC-BF75-C9AD796782F6</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>D0D9779A-C94C-4B86-98BC-173ABFD7CBCB</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>59802D88-883B-410D-B63D-6AD559088644</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>D17EF3A3-0F11-40EE-8DFF-4739CEE9C179</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>7590CD22-D175-47FC-BF75-C9AD796782F6</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>sourceoutputuid</key>
+				<string>AFE2ADA7-07FD-49A5-A948-D93419B30DDF</string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
+				<string>8640886C-129A-48D8-81EA-9D267380D303</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -23,7 +115,7 @@
 	<key>createdby</key>
 	<string>Gleb Skibitsky</string>
 	<key>description</key>
-	<string></string>
+	<string>Alfred workflow for Timing app</string>
 	<key>disabled</key>
 	<false/>
 	<key>name</key>
@@ -33,19 +125,42 @@
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>browser</key>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>## Start Task
+
+curl -X "POST" "https://web.timingapp.com/api/v1/time-entries/start" \
+     -H "Authorization: Bearer ${token}" \
+     -H 'Accept: application/json' \
+     -H 'Content-Type: application/json' \
+     -d "{\"title\": \"${task}\",\"project\": \"${project}\"}"</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
 				<string></string>
-				<key>spaces</key>
-				<string></string>
-				<key>url</key>
-				<string>{query}</string>
-				<key>utf8</key>
-				<true/>
+				<key>type</key>
+				<integer>0</integer>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.action.openurl</string>
+			<string>alfred.workflow.action.script</string>
 			<key>uid</key>
-			<string>CDAE3014-01C4-4C64-960A-111558B1434C</string>
+			<string>7590CD22-D175-47FC-BF75-C9AD796782F6</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>triggerid</key>
+				<string>start timing task</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.external</string>
+			<key>uid</key>
+			<string>96E4E405-A44F-4EC4-BE91-E30978317012</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -61,7 +176,7 @@
 				<key>argumenttrimmode</key>
 				<integer>0</integer>
 				<key>argumenttype</key>
-				<integer>0</integer>
+				<integer>1</integer>
 				<key>escaping</key>
 				<integer>102</integer>
 				<key>keyword</key>
@@ -75,17 +190,133 @@
 				<key>queuemode</key>
 				<integer>2</integer>
 				<key>runningsubtext</key>
-				<string>Searching...</string>
+				<string>Loading...</string>
 				<key>script</key>
-				<string>./node_modules/.bin/run-node index.js "$1"</string>
+				<string>./node_modules/.bin/run-node tasks.js "$1"</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>
 				<string>index.js</string>
 				<key>subtext</key>
-				<string></string>
+				<string>Enter the task...</string>
 				<key>title</key>
-				<string>Alfred Timing</string>
+				<string>Timing Task</string>
+				<key>type</key>
+				<integer>0</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>D0D9779A-C94C-4B86-98BC-173ABFD7CBCB</string>
+			<key>version</key>
+			<integer>3</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>in {var:project}</string>
+				<key>title</key>
+				<string>Starting {var:task}</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>509A21D4-0A66-4F00-A1D6-63AF793E1E27</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>conditions</key>
+				<array>
+					<dict>
+						<key>inputstring</key>
+						<string>{var:project}</string>
+						<key>matchcasesensitive</key>
+						<false/>
+						<key>matchmode</key>
+						<integer>1</integer>
+						<key>matchstring</key>
+						<string></string>
+						<key>outputlabel</key>
+						<string>Use {var:project}</string>
+						<key>uid</key>
+						<string>AFE2ADA7-07FD-49A5-A948-D93419B30DDF</string>
+					</dict>
+				</array>
+				<key>elselabel</key>
+				<string>Select Project</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.conditional</string>
+			<key>uid</key>
+			<string>D17EF3A3-0F11-40EE-8DFF-4739CEE9C179</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argument</key>
+				<string></string>
+				<key>variables</key>
+				<dict>
+					<key>task</key>
+					<string>{query}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.argument</string>
+			<key>uid</key>
+			<string>59802D88-883B-410D-B63D-6AD559088644</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>alfredfiltersresults</key>
+				<true/>
+				<key>alfredfiltersresultsmatchmode</key>
+				<integer>2</integer>
+				<key>argumenttreatemptyqueryasnil</key>
+				<false/>
+				<key>argumenttrimmode</key>
+				<integer>0</integer>
+				<key>argumenttype</key>
+				<integer>1</integer>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>queuedelaycustom</key>
+				<integer>3</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<true/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>2</integer>
+				<key>runningsubtext</key>
+				<string>Loading...</string>
+				<key>script</key>
+				<string>./node_modules/.bin/run-node projects.js "$1"</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string>index.js</string>
+				<key>subtext</key>
+				<string>Select project...</string>
+				<key>title</key>
+				<string>Timing Projects</string>
 				<key>type</key>
 				<integer>0</integer>
 				<key>withspace</key>
@@ -98,27 +329,98 @@
 			<key>version</key>
 			<integer>3</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argument</key>
+				<string></string>
+				<key>variables</key>
+				<dict>
+					<key>project</key>
+					<string>{query}</string>
+				</dict>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.utility.argument</string>
+			<key>uid</key>
+			<string>C2879205-8139-4FDE-A7FC-B9CBD8C111D6</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string></string>
 	<key>uidata</key>
 	<dict>
+		<key>509A21D4-0A66-4F00-A1D6-63AF793E1E27</key>
+		<dict>
+			<key>xpos</key>
+			<integer>1185</integer>
+			<key>ypos</key>
+			<integer>45</integer>
+		</dict>
+		<key>59802D88-883B-410D-B63D-6AD559088644</key>
+		<dict>
+			<key>xpos</key>
+			<integer>385</integer>
+			<key>ypos</key>
+			<integer>85</integer>
+		</dict>
+		<key>7590CD22-D175-47FC-BF75-C9AD796782F6</key>
+		<dict>
+			<key>xpos</key>
+			<integer>985</integer>
+			<key>ypos</key>
+			<integer>45</integer>
+		</dict>
 		<key>8640886C-129A-48D8-81EA-9D267380D303</key>
 		<dict>
 			<key>xpos</key>
-			<integer>10</integer>
+			<integer>680</integer>
 			<key>ypos</key>
-			<integer>10</integer>
+			<integer>295</integer>
 		</dict>
-		<key>CDAE3014-01C4-4C64-960A-111558B1434C</key>
+		<key>96E4E405-A44F-4EC4-BE91-E30978317012</key>
 		<dict>
 			<key>xpos</key>
-			<integer>150</integer>
+			<integer>20</integer>
 			<key>ypos</key>
-			<integer>10</integer>
+			<integer>45</integer>
+		</dict>
+		<key>C2879205-8139-4FDE-A7FC-B9CBD8C111D6</key>
+		<dict>
+			<key>xpos</key>
+			<integer>855</integer>
+			<key>ypos</key>
+			<integer>325</integer>
+		</dict>
+		<key>D0D9779A-C94C-4B86-98BC-173ABFD7CBCB</key>
+		<dict>
+			<key>xpos</key>
+			<integer>205</integer>
+			<key>ypos</key>
+			<integer>45</integer>
+		</dict>
+		<key>D17EF3A3-0F11-40EE-8DFF-4739CEE9C179</key>
+		<dict>
+			<key>xpos</key>
+			<integer>485</integer>
+			<key>ypos</key>
+			<integer>75</integer>
 		</dict>
 	</dict>
+	<key>variables</key>
+	<dict>
+		<key>token</key>
+		<string>eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImp0aSI6ImYzZGFmYjM1MTVkODkwNTllNWE5Zjk5ZWQzNDFlZmU3NzcwMjc2MTkzYWVhZjZmNWQ3ZDAzZTc0ZTAzOWE0ZTNiM2MzYTg2NjVhYmM4Y2ZjIn0.eyJhdWQiOiIxIiwianRpIjoiZjNkYWZiMzUxNWQ4OTA1OWU1YTlmOTllZDM0MWVmZTc3NzAyNzYxOTNhZWFmNmY1ZDdkMDNlNzRlMDM5YTRlM2IzYzNhODY2NWFiYzhjZmMiLCJpYXQiOjE1NzAwMjQxMTgsIm5iZiI6MTU3MDAyNDExOCwiZXhwIjoxODg1NjQzMzE4LCJzdWIiOiIxMTYyOCIsInNjb3BlcyI6W119.lnY3KJLBMsF8f1QvDPxBpowmzPnwoNBP1wB406ecc2FmyXx5wB4A0OdoOyMWtB23Yd6bt54nKkf4lUb1NrtZ8jh5G_RwJr5cxRCSzH1y0OjsnWYBzHQSMJRSMqp0SLD2aaGynySw6Fc3mtR1_sYiPRbRFnn3HocIDKhpemw6lzr9OJJa_S2d-RpYJxz-k7VX0t2UAlcFbgUPcDmS1RgSQAUCFZ1hCs7AUIjX4c5HPAv8H1-2kFQCMfcI_z4BIN4sL8Ldg9Nzr7tFHEBaCLlSMJ-FJmdPad3f8Za__PTKaSIu5oRkLRl5DdE9ZW47FUddfP5dZoY8ZnXzINu-5Au2vsMCQ2OpuiKx5P4nC627wnYBZRzyZKY3ZLE05U3TDUdsiCI1xM5BWFnk6YPiAaGjnJUi3bf0kXdSHjH5TApizWnu8-boELC-WKobfHP1kYbmxL3s6x_apTUTF-lMeBGmpUlcgudXb8jmP0FF9f700wKMCxGjYY1J5cp8ukon-0HkVIrxWUVcuhlU33P7qY7KAcQvbkcfcu6CJkLAFhmsctNFRWP6ll6L4c1aMuUlN7UYZKuGTHGbdEzUqPOWiWiJIizqV7q6_7CvWrAviqjUXHf-zJ4zg7aWZrh5vkpexPtbEcp8YhrpZP_1pN6A0Sp9fYmajScgMzY32HRY63TId9c</string>
+	</dict>
+	<key>variablesdontexport</key>
+	<array>
+		<string>token</string>
+	</array>
+	<key>version</key>
+	<string>1.0.0</string>
 	<key>webaddress</key>
-	<string></string>
+	<string>https://github.com/skibitsky/alfred-timing#readme</string>
 </dict>
 </plist>
