@@ -13,7 +13,7 @@
     "node": ">=4"
   },
   "scripts": {
-    "test": "xo && ava",
+    "test": "xo",
     "postinstall": "alfy-init",
     "preuninstall": "alfy-cleanup"
   },
@@ -33,8 +33,6 @@
     "lodash.uniqby": "^4.7.0"
   },
   "devDependencies": {
-    "alfy-test": "^0.3.0",
-    "ava": "^0.18.0",
-    "xo": "^0.17.0"
+    "xo": "^0.17.1"
   }
 }
