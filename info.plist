@@ -8,6 +8,45 @@
 	<string>My</string>
 	<key>connections</key>
 	<dict>
+		<key>02911BE1-DD09-4D72-960F-E01588063616</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>22D96B12-94C9-42BE-A126-14F162CD09ED</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>14694C10-D244-41DB-B323-975A1DB1EA54</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>240F030E-4872-4504-92EC-A924F7BF7E6F</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
+		<key>240F030E-4872-4504-92EC-A924F7BF7E6F</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>02911BE1-DD09-4D72-960F-E01588063616</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+				<key>vitoclose</key>
+				<false/>
+			</dict>
+		</array>
 		<key>59802D88-883B-410D-B63D-6AD559088644</key>
 		<array>
 			<dict>
@@ -154,13 +193,21 @@ curl -X "POST" "https://web.timingapp.com/api/v1/time-entries/start" \
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>triggerid</key>
-				<string>start timing task</string>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string>in {var:project}</string>
+				<key>title</key>
+				<string>Starting {var:task}</string>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.trigger.external</string>
+			<string>alfred.workflow.output.notification</string>
 			<key>uid</key>
-			<string>96E4E405-A44F-4EC4-BE91-E30978317012</string>
+			<string>509A21D4-0A66-4F00-A1D6-63AF793E1E27</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -216,21 +263,13 @@ curl -X "POST" "https://web.timingapp.com/api/v1/time-entries/start" \
 		<dict>
 			<key>config</key>
 			<dict>
-				<key>lastpathcomponent</key>
-				<false/>
-				<key>onlyshowifquerypopulated</key>
-				<false/>
-				<key>removeextension</key>
-				<false/>
-				<key>text</key>
-				<string>in {var:project}</string>
-				<key>title</key>
-				<string>Starting {var:task}</string>
+				<key>triggerid</key>
+				<string>start timing task</string>
 			</dict>
 			<key>type</key>
-			<string>alfred.workflow.output.notification</string>
+			<string>alfred.workflow.trigger.external</string>
 			<key>uid</key>
-			<string>509A21D4-0A66-4F00-A1D6-63AF793E1E27</string>
+			<string>96E4E405-A44F-4EC4-BE91-E30978317012</string>
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
@@ -347,11 +386,120 @@ curl -X "POST" "https://web.timingapp.com/api/v1/time-entries/start" \
 			<key>version</key>
 			<integer>1</integer>
 		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>ts</string>
+				<key>subtext</key>
+				<string></string>
+				<key>text</key>
+				<string>Stop the currently running task</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>240F030E-4872-4504-92EC-A924F7BF7E6F</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>102</integer>
+				<key>script</key>
+				<string>## Stop the currently running task
+
+curl -X PUT "https://web.timingapp.com/api/v1/time-entries/stop" \
+    -H "Authorization: Bearer ${token}"</string>
+				<key>scriptargtype</key>
+				<integer>1</integer>
+				<key>scriptfile</key>
+				<string></string>
+				<key>type</key>
+				<integer>0</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>02911BE1-DD09-4D72-960F-E01588063616</string>
+			<key>version</key>
+			<integer>2</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>triggerid</key>
+				<string>stop timing task</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.trigger.external</string>
+			<key>uid</key>
+			<string>14694C10-D244-41DB-B323-975A1DB1EA54</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<false/>
+				<key>removeextension</key>
+				<false/>
+				<key>text</key>
+				<string></string>
+				<key>title</key>
+				<string>Task Stopped</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>22D96B12-94C9-42BE-A126-14F162CD09ED</string>
+			<key>version</key>
+			<integer>1</integer>
+		</dict>
 	</array>
 	<key>readme</key>
 	<string></string>
 	<key>uidata</key>
 	<dict>
+		<key>02911BE1-DD09-4D72-960F-E01588063616</key>
+		<dict>
+			<key>xpos</key>
+			<integer>420</integer>
+			<key>ypos</key>
+			<integer>510</integer>
+		</dict>
+		<key>14694C10-D244-41DB-B323-975A1DB1EA54</key>
+		<dict>
+			<key>xpos</key>
+			<integer>20</integer>
+			<key>ypos</key>
+			<integer>510</integer>
+		</dict>
+		<key>22D96B12-94C9-42BE-A126-14F162CD09ED</key>
+		<dict>
+			<key>xpos</key>
+			<integer>635</integer>
+			<key>ypos</key>
+			<integer>510</integer>
+		</dict>
+		<key>240F030E-4872-4504-92EC-A924F7BF7E6F</key>
+		<dict>
+			<key>xpos</key>
+			<integer>210</integer>
+			<key>ypos</key>
+			<integer>510</integer>
+		</dict>
 		<key>509A21D4-0A66-4F00-A1D6-63AF793E1E27</key>
 		<dict>
 			<key>xpos</key>
