@@ -28,7 +28,7 @@ fetch('https://web.timingapp.com/api/v1/time-entries', {
     sortedData.map(t => {
 	const project = t.project.title;
 	return {
-		title: t.title,
+		title: (t.title) ? t.title : project,
 		subtitle: `Project: ${project}`,
 		autocomplete: t.title,
 		arg: t.title,
