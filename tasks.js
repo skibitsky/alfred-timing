@@ -26,12 +26,13 @@ fetch('https://web.timingapp.com/api/v1/time-entries', {
 
 	var task = inputMatches(
     sortedData.map(t => {
-	const project = t.project.title;
+	const project = t.project.title,
+	      title   = (t.title) ? t.title : project;
 	return {
-		title: (t.title) ? t.title : project,
+		title: title,
 		subtitle: `Project: ${project}`,
-		autocomplete: t.title,
-		arg: t.title,
+		autocomplete: title,
+		arg: title,
 		variables: {
 			project: project
 		}
