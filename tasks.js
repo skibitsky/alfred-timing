@@ -21,13 +21,13 @@ fetch('https://web.timingapp.com/api/v1/time-entries', {
 }).then(result => {
 	const data = result.data;
 
-  // Remove tasks with the same title
+    // Remove tasks with the same title
 	const sortedData = uniqBy(data, 'title');
 
 	var task = inputMatches(
     sortedData.map(t => {
-	const project = t.project.title,
-	      title   = (t.title) ? t.title : project;
+	const project = t.project.title;
+	const title = (t.title) ? t.title : project;
 	return {
 		title: title,
 		subtitle: `Project: ${project}`,
