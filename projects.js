@@ -11,16 +11,16 @@ fetch('https://web.timingapp.com/api/v1/projects', {
 	},
 	json: true
 }).then(result => {
-    const data = result.data
+	const data = result.data
         .filter(pr => !pr.is_archived)
         .map(pr => {
-            return {
-                uid: pr.self,
-                title: pr.title,
-                autocomplete: pr.title,
-                arg: pr.title
-            };
-        });
+	return {
+		uid: pr.self,
+		title: pr.title,
+		autocomplete: pr.title,
+		arg: pr.title
+	};
+});
 
 	output(inputMatches(data, 'title'));
 });
