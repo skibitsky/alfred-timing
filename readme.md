@@ -21,7 +21,7 @@ $ npm install --global alfred-timing
 
 ## Usage
 
-In Alfred, type `t`, <kbd>Enter</kbd>, and your task.
+In Alfred, type `t`, press <kbd>Return</kbd>, and enter your task.
 You can create a new task or select the existing one (project will be selected automatically).
 
 ## License
