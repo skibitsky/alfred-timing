@@ -21,6 +21,13 @@ fetch('https://web.timingapp.com/api/v1/projects', {
 		arg: pr.title
 	};
 });
+	//insert unassigned project at top
+	data.unshift({
+		uid: 0,
+		title: "Unassigned",
+		autocomplete: "Unassigned",
+		arg: "Unassigned"
+	});
 
 	output(inputMatches(data, 'title'));
 });

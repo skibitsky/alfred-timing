@@ -171,11 +171,21 @@
 				<key>script</key>
 				<string>## Start Task
 
-curl -X "POST" "https://web.timingapp.com/api/v1/time-entries/start" \
+unassigned="Unassigned"
+
+if [ "$project" != "$unassigned" ]; then
+	curl -X "POST" "https://web.timingapp.com/api/v1/time-entries/start" \
      -H "Authorization: Bearer ${token}" \
      -H 'Accept: application/json' \
      -H 'Content-Type: application/json' \
-     -d "{\"title\": \"${task}\",\"project\": \"${project}\"}"</string>
+     -d "{\"title\": \"${task}\",\"project\": \"${project}\"}"
+else
+	curl -X "POST" "https://web.timingapp.com/api/v1/time-entries/start" \
+     -H "Authorization: Bearer ${token}" \
+     -H 'Accept: application/json' \
+     -H 'Content-Type: application/json' \
+     -d "{\"title\": \"${task}\"}"
+fi</string>
 				<key>scriptargtype</key>
 				<integer>1</integer>
 				<key>scriptfile</key>

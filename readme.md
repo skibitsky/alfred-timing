@@ -27,3 +27,6 @@ You can create a new task or select the existing one (project will be selected a
 ## License
 
 MIT © [skibitsky](http://skibitsky.com)
+
+## Contributors
+- Bhagya Silva (github.com/bhagyas)
