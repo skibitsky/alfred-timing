@@ -30,3 +30,4 @@ MIT © [skibitsky](http://skibitsky.com)
 
 ## Contributors
 - Bhagya Silva (github.com/bhagyas)
+- Daniel Willitzer (github.com/dwillitzer)
