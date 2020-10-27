@@ -1,6 +1,6 @@
 {
   "name": "alfred-timing",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Alfred workflow for Timing app",
   "license": "MIT",
   "repository": "skibitsky/alfred-timing",
