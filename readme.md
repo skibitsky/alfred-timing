@@ -14,7 +14,7 @@ $ npm install --global alfred-timing
 
 
 
-0. Install workflow with  ```$ npm install --global alfred-timing```
+0. Install workflow by running ```$ npm install --global alfred-timing``` in Terminal
 1. Generate new Timing API token [here](https://web.timingapp.com/integrations/tokens)
 2. Insert yout API token into the `token` field in "Workflow Environment Variables" window:
 <img src="variable-window.png" width="694">
