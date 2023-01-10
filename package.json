@@ -29,10 +29,10 @@
     "alfy"
   ],
   "dependencies": {
-    "alfy": "^0.9.1",
+    "alfy": "^1.1.0",
     "lodash.uniqwith": "^4.5.0"
   },
   "devDependencies": {
-    "xo": "^0.17.1"
+    "xo": "^0.53.1"
   }
 }
