@@ -33,6 +33,6 @@
     "lodash.uniqwith": "^4.5.0"
   },
   "devDependencies": {
-    "xo": "^0.17.1"
+    "xo": "^0.53.1"
   }
 }
