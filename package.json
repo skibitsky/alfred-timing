@@ -30,7 +30,7 @@
   ],
   "dependencies": {
     "alfy": "^0.9.1",
-    "lodash.uniqby": "^4.7.0"
+    "lodash.uniqwith": "^4.5.0"
   },
   "devDependencies": {
     "xo": "^0.17.1"

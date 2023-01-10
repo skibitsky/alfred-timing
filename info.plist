@@ -210,7 +210,7 @@ fi</string>
 				<key>removeextension</key>
 				<false/>
 				<key>text</key>
-				<string>in {var:project}</string>
+				<string>in {var:projectTitle}</string>
 				<key>title</key>
 				<string>Starting {var:task}</string>
 			</dict>

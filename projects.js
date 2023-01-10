@@ -12,15 +12,15 @@ fetch('https://web.timingapp.com/api/v1/projects', {
 	json: true
 }).then(result => {
 	const data = result.data
-        .filter(pr => !pr.is_archived)
-        .map(pr => {
-	return {
-		uid: pr.self,
-		title: pr.title,
-		autocomplete: pr.title,
-		arg: pr.title
-	};
-});
+		.filter(pr => !pr.is_archived)
+		.map(pr => {
+			return {
+				uid: pr.self,
+				title: pr.title,
+				autocomplete: pr.title,
+				arg: pr.title
+			};
+		});
 	// insert unassigned project at top
 	data.unshift({
 		uid: 0,
